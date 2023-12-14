@@ -1,7 +1,6 @@
 # Using the controller trigger it is then possible to 'grab' the Crazyflie
 # and to make it move.
 
-import sys
 import time
 
 import openvr
@@ -11,6 +10,8 @@ from cflib.crazyflie import Crazyflie
 from cflib.crazyflie.log import LogConfig
 from cflib.crazyflie.syncCrazyflie import SyncCrazyflie
 from cflib.crazyflie.syncLogger import SyncLogger
+
+from cflib.utils.power_switch import PowerSwitch
 
 # URI to the Crazyflie to connect to
 uri = 'radio://0/80/2M'
@@ -182,6 +183,8 @@ if __name__ == '__main__':
 
     # print('fake mode.')
     # grab_control(FakeSCF(), (0,0,0,0))
+
+
 
     print('connecting to drone..')
     with SyncCrazyflie(uri, cf=Crazyflie(rw_cache='./cache')) as scf:
